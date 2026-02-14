@@ -442,3 +442,65 @@ std::vector<float> GeluOCL(const std::vector<float>& input, int platform) {
  - perform OpenCL boilerplate code once;
  - use better formula to compute GELU, e.g. replace *tanh()* with *exp()*;
  - overlap host memory allocation and GPU computations.
+
+# Results
+## 1_gelu_omp (134217728 elements)
+|Group|Name|Result|Rank|
+|-----|----|------|----|
+|**FAST**|**FAST**|**0.1083**|**-**|
+|**REF**|**REF**|**0.7275**|**-**|
+
+## 2_gelu_cuda (134217728 elements)
+|Group|Name|Result|Rank|
+|-----|----|------|----|
+|**FAST**|**FAST**|**0.1455**|**-**|
+|**REF**|**REF**|**0.2167**|**-**|
+
+## 3_naive_gemm_omp (1024 elements)
+|Group|Name|Result|Rank|
+|-----|----|------|----|
+|**FAST**|**FAST**|**0.0254**|**-**|
+|**REF**|**REF**|**0.7279**|**-**|
+
+## 4_naive_gemm_cuda (4096 elements)
+|Group|Name|Result|Rank|
+|-----|----|------|----|
+|**FAST**|**FAST**|**0.1591**|**-**|
+|**REF**|**REF**|**0.5797**|**-**|
+
+## 5_block_gemm_omp (1024 elements)
+|Group|Name|Result|Rank|
+|-----|----|------|----|
+|**FAST**|**FAST**|**0.0223**|**-**|
+|**REF**|**REF**|**0.1666**|**-**|
+
+## 6_block_gemm_cuda (4096 elements)
+|Group|Name|Result|Rank|
+|-----|----|------|----|
+|**FAST**|**FAST**|**0.1469**|**-**|
+|**REF**|**REF**|**0.7454**|**-**|
+
+## 7_gemm_cublas (4096 elements)
+|Group|Name|Result|Rank|
+|-----|----|------|----|
+|**FAST**|**FAST**|**0.0484**|**-**|
+|**REF**|**REF**|**0.0534**|**-**|
+
+## 8_fft_cufft (131072 elements)
+|Group|Name|Result|Rank|
+|-----|----|------|----|
+|**FAST**|**FAST**|**0.0916**|**-**|
+|**REF**|**REF**|**0.2027**|**-**|
+
+## 9_gelu_ocl (134217728 elements)
+|Group|Name|Result|Rank|
+|-----|----|------|----|
+|**FAST**|**FAST**|**0.1449**|**-**|
+|**REF**|**REF**|**0.2986**|**-**|
+
+# Tasks Done
+**Total Passed: 0**
+
+---
+*Maximum Score: 576 (64 per task)
+*
