@@ -11,7 +11,7 @@
 3. Fork this repo (just click **Fork** button on the top of the page, detailed instructions [here](https://docs.github.com/en/get-started/exploring-projects-on-github/contributing-to-a-project))
 4. Clone your forked repo into your local machine, use your user instead of `username`:
 ```sh
-git clone git@github.com:username/gpu-2025.git
+git clone git@github.com:username/cuda-2026.git
 cd gpu-2025
 ```
 5. Go to your group folder, e.g.:
