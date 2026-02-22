@@ -1,14 +1,7 @@
 #include <cmath>
 #include <omp.h>
-#include <vector>
-#include <iostream>
-#include <chrono>
-#include <random>
+#include"gelu_omp.h"
 
-#pragma GCC optimize("O3")
-#pragma GCC optimize("fast-math")
-
-#pragma GCC target("avx2")
 std::vector<float> GeluOMP(const std::vector<float>& input) {
     size_t n = input.size();
     std::vector<float> output(n);
